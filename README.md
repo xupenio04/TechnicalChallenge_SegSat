@@ -1,0 +1,1 @@
+# TechnicalChallenge_SegSat
