@@ -21,7 +21,6 @@ public class KafkaConsumerService {
         try {
             System.out.println("Mensagem recebida: " + message);
             
-            // Remove aspas se existirem
             message = message.replace("\"", "").trim();
             
             String[] parts = message.split(",");
@@ -30,7 +29,6 @@ public class KafkaConsumerService {
             }
 
             SensorData data = new SensorData();
-            // Ignora o ID da mensagem pois é auto-incremento
             data.setSensorId(parts[1].trim());
             data.setTemperature(Double.parseDouble(parts[2].trim()));
             data.setHumidity(Double.parseDouble(parts[3].trim()));

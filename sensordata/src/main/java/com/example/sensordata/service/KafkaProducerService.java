@@ -15,7 +15,6 @@ public class KafkaProducerService {
     }
 
     public void sendSensorData(String sensorId, Double temperature, Double humidity) {
-        // Gera uma mensagem no formato esperado pelo consumer
         String message = String.format("0,%s,%.2f,%.2f", sensorId, temperature, humidity);
         kafkaTemplate.send(TOPIC, message);
     }

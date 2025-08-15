@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/sensor-data")
 public class SensorDataController {
@@ -28,10 +29,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 2. Obter dados por ID do sensor
-     * GET /api/sensor-data/by-sensor/{sensorId}
-     */
     @GetMapping("/by-sensor/{sensorId}")
     public ResponseEntity<List<SensorData>> getSensorDataBySensorId(
             @PathVariable String sensorId) {
@@ -47,10 +44,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 3. Obter dados por intervalo de tempo
-     * GET /api/sensor-data/by-time-range?start={start}&end={end}
-     */
     @GetMapping("/by-time-range")
     public ResponseEntity<List<SensorData>> getSensorDataByTimestampRange(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
@@ -67,10 +60,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 4. Obter dados por sensor e intervalo de tempo
-     * GET /api/sensor-data/by-sensor/{sensorId}/time-range?start={start}&end={end}
-     */
     @GetMapping("/by-sensor/{sensorId}/time-range")
     public ResponseEntity<List<SensorData>> getSensorDataBySensorAndTimeRange(
             @PathVariable String sensorId,
@@ -88,10 +77,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 5. Obter a última leitura de um sensor
-     * GET /api/sensor-data/by-sensor/{sensorId}/latest
-     */
     @GetMapping("/by-sensor/{sensorId}/latest")
     public ResponseEntity<SensorData> getLatestSensorData(
             @PathVariable String sensorId) {
@@ -107,10 +92,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 6. Obter dados com temperatura acima de um valor
-     * GET /api/sensor-data/temperature-above/{temperature}
-     */
     @GetMapping("/temperature-above/{temperature}")
     public ResponseEntity<List<SensorData>> getSensorDataWithTemperatureAbove(
             @PathVariable Double temperature) {
@@ -122,10 +103,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 7. Obter dados com umidade abaixo de um valor
-     * GET /api/sensor-data/humidity-below/{humidity}
-     */
     @GetMapping("/humidity-below/{humidity}")
     public ResponseEntity<List<SensorData>> getSensorDataWithHumidityBelow(
             @PathVariable Double humidity) {
@@ -137,10 +114,6 @@ public class SensorDataController {
         }
     }
 
-    /**
-     * 8. Obter estatísticas de um sensor
-     * GET /api/sensor-data/stats/{sensorId}
-     */
     @GetMapping("/stats/{sensorId}")
     public ResponseEntity<SensorStats> getSensorStats(
             @PathVariable String sensorId) {
