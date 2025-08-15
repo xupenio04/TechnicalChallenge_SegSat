@@ -9,11 +9,14 @@ import java.time.LocalDateTime;
 public class SensorData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     
     private String sensorId;
+    @Column(name = "temperature")
     private Double temperature;
+    @Column(name = "humidity")
     private Double humidity;
+    @Column(name = "timestamp")
     private LocalDateTime timestamp;
     
     @PrePersist
